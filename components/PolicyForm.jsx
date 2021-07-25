@@ -39,6 +39,35 @@ export default function FormGeneral(props) {
     });
   }
 
+  const submitData = async (data) => {
+    const inners = [...data.fields];
+    const submitted = true;
+    const companyName = inners[0].field_value;
+    const email = inners[1].field_value;
+    const companyWebsite = inners[2].field_value;
+    const yearsInBusiness = inners[3].field_value;
+    const principalOperation = inners[4].field_value;
+    const contractorsLicense = inners[5].field_value;
+    const federalTaxIdNumber = inners[6].field_value;
+
+
+    try {
+      const body = {
+        submitted,
+        companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber,
+        // author
+      }
+      await fetch(`http://localhost:3000/api/post`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+      // await Router.push('/drafts') // printing
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const [printing, setPrinting] = useState(false);
   const HandleToggle = () => {
     printing ? setPrinting(false) : setPrinting(true);

@@ -15,7 +15,6 @@ export default function FormGeneral(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    HandleToggle();
     console.log(elements);
     submitData(elements);
   }
@@ -50,12 +49,10 @@ export default function FormGeneral(props) {
     const contractorsLicense = inners[5].field_value;
     const federalTaxIdNumber = inners[6].field_value;
 
-
     try {
       const body = {
         submitted,
         companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber,
-        // author
       }
       await fetch(`http://localhost:3000/api/post`, {
         method: 'POST',
@@ -68,14 +65,11 @@ export default function FormGeneral(props) {
     }
   }
 
-  const [printing, setPrinting] = useState(false);
-  const HandleToggle = () => {
-    printing ? setPrinting(false) : setPrinting(true);
-  }
+
+
   return (
     <div>
       <FormContext.Provider value={{ handleChange }}>
-        {/* <Header2 /> */}
         <div className="App container w-50">
           <h2 style={{ marginTop: 50 }}>{form_name}</h2>
           <form style={{ marginTop: 50 }}>
@@ -83,7 +77,6 @@ export default function FormGeneral(props) {
           </form>
           <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
-
       </FormContext.Provider>
     </div>
   )

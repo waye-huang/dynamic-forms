@@ -6,6 +6,7 @@ export default async function handle(req, res) {
   const { submitted, companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber } = req.body
   const result = await prisma.policy.create({
     data: {
+      isDraft: false,
       submitted: submitted,
       companyName: companyName,
       companyWebsite: companyWebsite,

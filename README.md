@@ -2,8 +2,6 @@ This is a multi-field form project written in Javascript on Next.js framework wi
 
 # Notes
 
-- Strategy modules that allow developers to use third-party OAuth 2.0
-  - [x] SignUp writes user to Database
   - [x] SignUp writes user to Database
   - [x] Multiple forms can be imported as JSON file for display
   - [x] React Hooks (no class components)

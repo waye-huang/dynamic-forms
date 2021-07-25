@@ -1,0 +1,110 @@
+[
+    {
+        "form_name": "General Libility",
+        "fields": [
+            {
+                "field_id": "companyName",
+                "field_label": "Company Name",
+                "field_placeholder": "Enter company name",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "email",
+                "field_label": "Email",
+                "field_placeholder": "Enter primary email",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "companyWebsite",
+                "field_label": "company webite",
+                "field_placeholder": "Enter company website",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "yearsInBusiness",
+                "field_label": "year in business",
+                "field_placeholder": "Year in business",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "principalOperation",
+                "field_label": "principal operation",
+                "field_placeholder": "Principal operation",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "contractorsLicense",
+                "field_label": "contractors license",
+                "field_placeholder": "Contractors license",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "federalTaxIdNumber",
+                "field_label": "Driving License No.",
+                "field_placeholder": "e.g. 012 345 678",
+                "field_type": "text",
+                "field_value": ""
+            }
+        ]
+    },
+    {
+        "form_name": "Umberrela Libility",
+        "fields": [
+            {
+                "field_id": "companyName",
+                "field_label": "business Name",
+                "field_placeholder": "Umberrela business name",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "email",
+                "field_label": "business Email",
+                "field_placeholder": "Enter business emai",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "companyWebsite",
+                "field_label": "business webite",
+                "field_placeholder": "Enter business website",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "yearsInBusiness",
+                "field_label": "year in business",
+                "field_placeholder": "Year in business",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "principalOperation",
+                "field_label": "principal business",
+                "field_placeholder": "Principal business",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "contractorsLicense",
+                "field_label": "contractors license",
+                "field_placeholder": "Contractors license",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "federalTaxIdNumber",
+                "field_label": "Driving License No.",
+                "field_placeholder": "e.g. 012 345 678",
+                "field_type": "text",
+                "field_value": ""
+            }
+        ]
+    }
+]

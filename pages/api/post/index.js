@@ -8,14 +8,12 @@ export default async function handle(req, res) {
     data: {
       submitted: submitted,
       companyName: companyName,
-      // agent: 'shepherd',
       companyWebsite: companyWebsite,
       yearsInBusiness: parseInt(yearsInBusiness),
       principalOperation: principalOperation,
       contractorsLicense: parseInt(contractorsLicense),
       federalTaxIdNumber: federalTaxIdNumber,
       agentId: 1,
-      // author: { connect: { email: authoremail } },
     },
   })
   res.json(result)

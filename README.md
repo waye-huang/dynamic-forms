@@ -10,6 +10,5 @@ This is a multi-field form project written in Javascript on Next.js framework wi
   - [x] Saving to postgreSql throught Prisma
   - [ ] Form Submission requires cookie
   - [ ] Prints a PDF
-  - [ ] Written in TypeScript
 
 ## Updates

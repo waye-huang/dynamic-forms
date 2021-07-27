@@ -38,6 +38,10 @@ export default function FormGeneral(props) {
     });
   }
 
+  //storing document.cookie from browser
+  const cookies = document.cookie.split(';').map(cookie => cookie.split('=')).reduce((ac, [key, value]) => ({ ...ac, [key.trim()]: decodeURIComponent(value) }), {});
+  const authCookie = 'auth' in cookies ? cookies['auth'] : '';
+
   const submitData = async (data) => {
     const inners = [...data.fields];
     const submitted = true;
@@ -51,6 +55,7 @@ export default function FormGeneral(props) {
 
     try {
       const body = {
+        authCookie,
         submitted,
         companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber,
       }
@@ -64,8 +69,6 @@ export default function FormGeneral(props) {
       console.error(error)
     }
   }
-
-
 
   return (
     <div>

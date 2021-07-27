@@ -1,9 +1,12 @@
 import prisma from '../../../lib/prisma'
 
 // POST /api/post
-// Required fields in body: title, authorEmail
+// Required fields in body: , 
 export default async function handle(req, res) {
-  const { submitted, companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber } = req.body
+  const {authCookie, submitted, companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber } = req.body;
+  console.log(`req.body.auth. ${req.body.authCookie}`);
+  if (req.body.authCookie !== 'shepherd') {
+    console.log('auth cookie not a match!'); return;} 
   const result = await prisma.policy.create({
     data: {
       isDraft: false,
@@ -17,5 +20,6 @@ export default async function handle(req, res) {
       agentId: 1,
     },
   })
+  console.log(result);
   res.json(result)
 }

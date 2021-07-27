@@ -46,7 +46,7 @@
             },
             {
                 "field_id": "federalTaxIdNumber",
-                "field_label": "Driving License No.",
+                "field_label": "Federal tax id number",
                 "field_placeholder": "e.g. 012 345 678",
                 "field_type": "text",
                 "field_value": ""

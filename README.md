@@ -2,15 +2,14 @@ This is a multi-field form project written in Javascript on Next.js framework wi
 
 # Notes
 
-  - [x] SignUp writes user to Database
-  - [x] Multiple forms can be imported as JSON config file for display
+  - [x] Use JSON confiq file from the backend to sent to pages
   - [x] React Hooks (no class components)
-  - [x] Using Next.js
+  - [x] Built with Next.js Framework
   - [x] Next.js API handle backend routing
   - [x] Saving to postgreSql throught Prisma
   - [x] Input type currently includes Text, Int, and checkbox
+  - [x] Form Submission requires cookie
   - [ ] Form Submit field nesting
-  - [ ] Form Submission requires cookie
   - [ ] Prints a PDF
 
 ## Updates

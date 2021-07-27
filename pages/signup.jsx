@@ -23,6 +23,8 @@ const SignUp = () => {
 		}
 	}
 
+
+
 	return (
 		<Layout>
 			<div className="page" style={{ marginTop: 200 }}>

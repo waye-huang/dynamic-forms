@@ -64,11 +64,6 @@
                 "field_placeholder": "lender name",
                 "field_type": "text",
                 "field_value": ""
-            },
-            {
-                "field_id": "isDraft",
-                "field_label": "This is a Draft",
-                "field_value": ""
             }
         ]
     },

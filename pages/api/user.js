@@ -8,5 +8,6 @@ export default async function handle(req, res) {
       ...req.body,
     },
   })
+  console.dir(result);
   res.json(result)
 }

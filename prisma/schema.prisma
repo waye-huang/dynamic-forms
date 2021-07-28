@@ -8,25 +8,19 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["filterJson"]
 }
 
 model Policy {
-  id                 Int     @id @default(autoincrement())
-  isDraft            Boolean @default(true)
-  submitted          Boolean @default(false)
-  companyName        String
-  primaryEmail       String
-  companyWebsite     String
-  yearsInBusiness    Int
-  principalOperation String
-  contractorsLicense Int?
-  federalTaxIdNumber Int?
-  developer_name     String?
-  lender_name        String?
-  authCookie         String
-  user               User    @relation(fields: [userId], references: [id])
-  userId             Int
+  id           Int     @id @default(autoincrement())
+  isDraft      Boolean @default(true)
+  submitted    Boolean @default(false)
+  formType     String
+  formMetadata Json
+  authCookie   String
+  user         User    @relation(fields: [userId], references: [id])
+  userId       Int
 }
 
 model User {

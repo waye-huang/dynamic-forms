@@ -6,6 +6,7 @@ import formJSON from '../formJSON.json'
 
 export default function FormGeneral(props) {
   const [elements, setElements] = useState(null);
+  const [formType, setFormType] = useState('');
   const { fields, form_name } = elements ?? {}
 
   useEffect(() => {
@@ -35,7 +36,10 @@ export default function FormGeneral(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // console.log(`elements ==> ${elements}`);
+    console.log('form_values vvv');
     console.log(elements);
+    setFormType(elements['form_name']);
     submitData();
   }
 
@@ -44,10 +48,11 @@ export default function FormGeneral(props) {
 
   const cookies = document.cookie.split(';').map(cookie => cookie.split('=')).reduce((ac, [key, value]) => ({ ...ac, [key.trim()]: decodeURIComponent(value) }), {});
   const authCookie = 'auth' in cookies ? cookies['auth'] : '';
-  const userName = localStorage.getItem('user');
+  // const userName = localStorage.getItem('user');
   const additionalSubmitInputs = {
     isDraft: false,
     submitted: true,
+    formType: formType,
     // user: userName,
     // userId: 1,
   }
@@ -55,7 +60,7 @@ export default function FormGeneral(props) {
 
   const submitData = async () => {
 
-    const body2 = fields.reduce((ac, { field_id, field_type, field_value }) => {
+    const formMetadata = fields.reduce((ac, { field_id, field_type, field_value }) => {
       let value;
       if (typeof field_value === 'boolean') {
         value = field_value;
@@ -75,7 +80,7 @@ export default function FormGeneral(props) {
 
 
     try {
-      const body = { ...body2, authCookie, ...additionalSubmitInputs };
+      const body = { formMetadata, authCookie, ...additionalSubmitInputs };
 
       await fetch(`http://localhost:3000/api/post`, {
         method: 'POST',

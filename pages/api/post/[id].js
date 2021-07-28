@@ -18,7 +18,7 @@ export default async function handle(req, res) {
 async function handleGET(postId, res) {
   const post = await prisma.policy.findUnique({
     where: { id: Number(postId) },
-    include: { agentId: true },
+    include: { userId: true },
   })
   res.json(post)
 }

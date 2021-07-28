@@ -9,12 +9,10 @@ export default function Drafts() {
   const [index, setIndex] = useState(1);
   const [formOn, setFormOn] = useState(false);
   const handleGeneral = () => {
-    // setForm(formGeneral);
     setIndex(0)
     setFormOn(true);
   }
   const handleUmbrella = () => {
-    // setForm(formUmbrella);
     setIndex(1)
     setFormOn(true);
   }

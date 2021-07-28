@@ -13,11 +13,6 @@ export default function FormGeneral(props) {
     console.log('Loading ', formJSON[props.index]['form_name']);
   }, [props])
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(elements);
-    submitData(elements);
-  }
 
   const handleChange = (id, event) => {
     const newElements = { ...elements }
@@ -38,27 +33,50 @@ export default function FormGeneral(props) {
     });
   }
 
-  //storing document.cookie from browser
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(elements);
+    submitData();
+  }
+
+
+  // storing document.cookie from browser
+
   const cookies = document.cookie.split(';').map(cookie => cookie.split('=')).reduce((ac, [key, value]) => ({ ...ac, [key.trim()]: decodeURIComponent(value) }), {});
   const authCookie = 'auth' in cookies ? cookies['auth'] : '';
+  const userName = localStorage.getItem('user');
+  const additionalSubmitInputs = {
+    isDraft: false,
+    submitted: true,
+    // user: userName,
+    // userId: 1,
+  }
 
-  const submitData = async (data) => {
-    const inners = [...data.fields];
-    const submitted = true;
-    const companyName = inners[0].field_value;
-    const email = inners[1].field_value;
-    const companyWebsite = inners[2].field_value;
-    const yearsInBusiness = inners[3].field_value;
-    const principalOperation = inners[4].field_value;
-    const contractorsLicense = inners[5].field_value;
-    const federalTaxIdNumber = inners[6].field_value;
+
+  const submitData = async () => {
+
+    const body2 = fields.reduce((ac, { field_id, field_type, field_value }) => {
+      let value;
+      if (typeof field_value === 'boolean') {
+        value = field_value;
+      } else if (typeof field_value === 'number' && field_type === 'text') {
+        value = String(field_value);
+      } else if (!isNaN(Number(field_value))) {
+        value = parseInt(field_value);
+      } else {
+        value = field_value
+      }
+      return ({ ...ac, [field_id]: value })
+    }, {});
+
+
+
+    // convert values using appropriate converter function
+
 
     try {
-      const body = {
-        authCookie,
-        submitted,
-        companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber,
-      }
+      const body = { ...body2, authCookie, ...additionalSubmitInputs };
+
       await fetch(`http://localhost:3000/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

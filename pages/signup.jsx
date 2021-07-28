@@ -17,6 +17,8 @@ const SignUp = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
 			})
+			localStorage.setItem('user', name)
+			localStorage.setItem('email', email)
 			await Router.push('/drafts')
 		} catch (error) {
 			console.error(error)

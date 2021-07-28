@@ -10,8 +10,8 @@
                 "field_value": ""
             },
             {
-                "field_id": "email",
-                "field_label": "Email",
+                "field_id": "primaryEmail",
+                "field_label": "Primary mail",
                 "field_placeholder": "Enter primary email",
                 "field_type": "text",
                 "field_value": ""
@@ -49,6 +49,11 @@
                 "field_label": "Federal tax id number",
                 "field_placeholder": "e.g. 012 345 678",
                 "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "isDraft",
+                "field_label": "This is a Draft",
                 "field_value": ""
             }
         ]

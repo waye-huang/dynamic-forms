@@ -150,5 +150,6 @@
   .grid {
     width: 100%;
     flex-direction: column;
+    min-width: 200px;
   }
 }

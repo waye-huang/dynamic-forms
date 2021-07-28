@@ -1,25 +1,22 @@
 import prisma from '../../../lib/prisma'
 
 // POST /api/post
-// Required fields in body: , 
 export default async function handle(req, res) {
-  const {authCookie, submitted, companyName, email, companyWebsite, yearsInBusiness, principalOperation, contractorsLicense, federalTaxIdNumber } = req.body;
-  console.log(`req.body.auth. ${req.body.authCookie}`);
-  if (req.body.authCookie !== 'shepherd') {
-    console.log('auth cookie not a match!'); return;} 
+
+  const {authCookie} = req.body;
+  if (authCookie !== 'shepherd') {
+  console.log('auth cookie not a match!'); return;} 
+  console.log(req.body);
+  let {user, primaryEmail} = req.body;
+  user = { create: {email: 'wei@gmail.com'}};
+  const newBody = {user, ...req.body}
+
   const result = await prisma.policy.create({
     data: {
-      isDraft: false,
-      submitted: submitted,
-      companyName: companyName,
-      companyWebsite: companyWebsite,
-      yearsInBusiness: parseInt(yearsInBusiness),
-      principalOperation: principalOperation,
-      contractorsLicense: parseInt(contractorsLicense),
-      federalTaxIdNumber: federalTaxIdNumber,
-      agentId: 1,
+    ...newBody
     },
   })
-  console.log(result);
+  console.log(`Form saved in DB -> `);
+  console.dir(result);
   res.json(result)
 }

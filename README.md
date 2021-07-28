@@ -9,7 +9,9 @@ This is a multi-field form project written in Javascript on Next.js framework wi
   - [x] Saving to postgreSql throught Prisma
   - [x] Input type currently includes Text, Int, and checkbox
   - [x] Form Submission requires cookie
-  - [ ] Form Submit field nesting
+  - [x] Form Submit support dynamic fields
+   
   - [ ] Prints a PDF
 
-## Updates
+## future features
+  - [ ] prisma schema file autoupdate, migrate & regenerate

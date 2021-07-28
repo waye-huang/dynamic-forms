@@ -20,8 +20,10 @@ model Policy {
   companyWebsite     String
   yearsInBusiness    Int
   principalOperation String
-  contractorsLicense String
-  federalTaxIdNumber String
+  contractorsLicense Int?
+  federalTaxIdNumber Int?
+  developer_name     String?
+  lender_name        String?
   authCookie         String
   user               User    @relation(fields: [userId], references: [id])
   userId             Int

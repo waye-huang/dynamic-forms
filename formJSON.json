@@ -52,6 +52,20 @@
                 "field_value": ""
             },
             {
+                "field_id": "developer_name",
+                "field_label": "Developer name",
+                "field_placeholder": "developer name",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "lender_name",
+                "field_label": "lender name",
+                "field_placeholder": "lender name",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
                 "field_id": "isDraft",
                 "field_label": "This is a Draft",
                 "field_value": ""

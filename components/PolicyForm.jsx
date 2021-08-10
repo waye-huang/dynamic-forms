@@ -14,7 +14,6 @@ export default function FormGeneral(props) {
     console.log('Loading ', formJSON[props.index]['form_name']);
   }, [props])
 
-
   const handleChange = (id, event) => {
     const newElements = { ...elements }
     newElements.fields.forEach(field => {
@@ -24,7 +23,6 @@ export default function FormGeneral(props) {
           case 'checkbox':
             field['field_value'] = event.target.checked;
             break;
-
           default:
             field['field_value'] = event.target.value;
             break;
@@ -36,16 +34,12 @@ export default function FormGeneral(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(`elements ==> ${elements}`);
-    console.log('form_values vvv');
     console.log(elements);
     setFormType(elements['form_name']);
     submitData();
   }
 
-
   // storing document.cookie from browser
-
   const cookies = document.cookie.split(';').map(cookie => cookie.split('=')).reduce((ac, [key, value]) => ({ ...ac, [key.trim()]: decodeURIComponent(value) }), {});
   const authCookie = 'auth' in cookies ? cookies['auth'] : '';
   // const userName = localStorage.getItem('user');
@@ -54,12 +48,10 @@ export default function FormGeneral(props) {
     submitted: true,
     formType: formType,
     // user: userName,
-    // userId: 1,
   }
 
 
   const submitData = async () => {
-
     const formMetadata = fields.reduce((ac, { field_id, field_type, field_value }) => {
       let value;
       if (typeof field_value === 'boolean') {
@@ -74,14 +66,8 @@ export default function FormGeneral(props) {
       return ({ ...ac, [field_id]: value })
     }, {});
 
-
-
-    // convert values using appropriate converter function
-
-
     try {
       const body = { formMetadata, authCookie, ...additionalSubmitInputs };
-
       await fetch(`http://localhost:3000/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

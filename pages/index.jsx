@@ -16,7 +16,7 @@ export default function Home() {
               Administration made easy
             </h1> */}
           <h1 href='http://localhost:3000/' className={styles.title}>
-            <a>Welcome to Shepherd</a>
+            <a>Dynamic Forms</a>
           </h1>
           <div className={styles.grid}>
             <Link href='/signup'>
@@ -24,7 +24,7 @@ export default function Home() {
                 SignUp
               </a>
             </Link>
-        
+
           </div>
 
         </div>
